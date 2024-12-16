@@ -30,7 +30,6 @@ export const checkSession = async (dispatch, navigate) => {
         navigate("/login");
     } else {
         dispatch({ type: "LOGIN_CHECKED", payload: response });
-        console.log("Paso por aquí");
         navigate("/");
     }
 };

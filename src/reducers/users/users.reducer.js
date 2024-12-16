@@ -21,7 +21,7 @@ export const usersReducer = (state, action) => {
             return { ...state, user: action.payload.data.name, token: action.payload.data.token, rol: action.payload.data.rol, loading: false }
         // La sesión se ha checkeado satisfactoriamente
         case "LOGIN_CHECKED":
-            return { ...state, user: action.payload.data.name, token: action.payload.data.token }            
+            return { ...state, user: action.payload.user.name, token: action.payload.token }            
         // Cerrar sesión
         case "LOGOUT":
             return { ...state, user: null, token: null, error: null, loading: false }
