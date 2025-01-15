@@ -50,4 +50,5 @@ body {
   min-width: 100%;
   min-height: 100svh;
   background-color: var(--hh-color-090);
+  font-family: var(--hh-font-family-primary);
 }

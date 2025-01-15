@@ -25,6 +25,12 @@ export const usersReducer = (state, action) => {
         // Cerrar sesión
         case "LOGOUT":
             return { ...state, user: null, token: null, error: null, loading: false }
+        case "DELETE_LOADING":
+            return { ...state, loading: false }
+        case "REQUEST_RESET_PWD":
+            return { ...state, user: null, token: action.payload, error: null, loading: false }
+        case "RESET_PWD":
+            return { ...state, user: null, token: null, error: null, loading: false }
         default:
             return { ...state }
     }

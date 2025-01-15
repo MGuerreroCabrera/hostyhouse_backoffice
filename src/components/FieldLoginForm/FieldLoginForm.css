@@ -17,6 +17,9 @@
     font-size: var(--hh-font-size-s);    
 }
 
+.input-field input.error {
+    border: 1px solid var(--hh-error-color);
+}
 
 .input-field label {
     position: absolute;
@@ -56,4 +59,8 @@
     height: 20px;
     object-fit: contain;
     opacity: 0.5;
+}
+
+.error-message {
+    color: var(--hh-error-color);
 }

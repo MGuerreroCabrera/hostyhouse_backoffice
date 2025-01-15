@@ -7,20 +7,23 @@ import Loading from "./components/Loading/Loading";
 import { useContext } from "react";
 import { UsersContext } from "./providers/UsersProvider";
 import { checkSession } from "./reducers/users/users.actions";
+import ResetPassword from "./pages/ResetPassword/ResetPassword";
 
 const App = () => {
 
   const navigate = useNavigate();
   
   // Recoger el estado para el loading
-  // Hago destructuring de loadindg del state
-  
+  // Hago destructuring de loadindg del state  
   const { state: { loading }, dispatch } = useContext(UsersContext); 
 
   // Comprobar si existe token para enviar al usuario a /login
   useEffect(() => {
     checkSession(dispatch, navigate);
   }, []);
+  // if(!window.location.pathname === "/reset-password") {
+    
+  // }  
 
   return (
     <>
@@ -29,6 +32,8 @@ const App = () => {
         <Route path="/" element={<Home/>}/>
         <Route path="/login" element={<Auth/>}/>
         <Route path="/forgot-password" element={<Auth/>}/>
+        <Route path="/reset-password" element={<ResetPassword/>}/>
+        <Route path="*" element={<Home/>}/>
       </Routes>
     </>
   )

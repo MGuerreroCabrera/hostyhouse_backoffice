@@ -3,11 +3,13 @@ import "./Form.css";
 
 export const FormContext = createContext();
 
-const Form = ({ children, handleSubmit, submit, register }) => {
+const Form = ({ children, handleSubmit, submit, register, errors }) => {
+
+  //console.log("Errors en Form", errors);
   
   return (
     <form onSubmit={handleSubmit(submit)}>
-      <FormContext.Provider value={{register}}>
+      <FormContext.Provider value={{register, errors}}>
         {children}
       </FormContext.Provider>
     </form>

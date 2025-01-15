@@ -13,8 +13,8 @@ export const API = async ({ endpoint, method = "GET", body, content_type }) => {
     }
     
     try {
-        const res = await fetch(BASE_URL + endpoint, { method, headers, body: JSON.stringify(body) });        
-        
+        const res = await fetch(BASE_URL + endpoint, { method, headers, body: JSON.stringify(body) });       
+
         const response = await res.json();
         
         if(!res.ok) {

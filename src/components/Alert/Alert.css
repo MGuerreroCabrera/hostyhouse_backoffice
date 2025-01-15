@@ -1,0 +1,46 @@
+.alert-container {
+    background: rgba( 255, 255, 255, 0.25);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 8px 32px 0 var(--hh-color-020);
+    backdrop-filter: blur( 0.5px );
+    -webkit-backdrop-filter: blur( 0.5px );
+    border-bottom: 1px solid var(--hh-error-color);
+    position: absolute;
+    width: 100%;
+    height: 10svh;
+    top: -10svh;
+    left: 0;
+    animation: slideDown 0.5s forwards;
+}
+
+.alert-container .glass {
+    backdrop-filter: blur(30px);
+    border-bottom: 1px solid white;
+}
+
+.alert-container.error {
+    background-color: rgba(255, 0, 0, 0.1);
+    color: white;
+}
+
+.alert-container.success {
+    background-color: green;
+}
+
+@keyframes slideDown {
+    from {
+        top: -10svh;
+    } to {
+        top: 0svh;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        top: 0;
+    } to {
+        top: -10svh;
+    }
+}
