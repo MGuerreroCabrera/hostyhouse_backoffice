@@ -4,7 +4,8 @@ export const INITIAL_USERS_STATE = {
     token: null,
     rol: null,
     error: null,
-    loading: false
+    loading: false,
+    requested: false
 }
 
 // Crear función reductora
@@ -28,7 +29,7 @@ export const usersReducer = (state, action) => {
         case "DELETE_LOADING":
             return { ...state, loading: false }
         case "REQUEST_RESET_PWD":
-            return { ...state, user: null, token: action.payload, error: null, loading: false }
+            return { ...state, user: null, token: action.payload, error: null, loading: false, requested: true }
         case "RESET_PWD":
             return { ...state, user: null, token: null, error: null, loading: false }
         default:

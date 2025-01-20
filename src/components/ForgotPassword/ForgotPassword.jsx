@@ -10,19 +10,31 @@ import { forgotPwd } from "../../reducers/users/users.actions";
 import { useContext } from "react";
 import { UsersContext } from "../../providers/UsersProvider";
 import Alert from "../Alert/Alert";
+import { useState } from "react";
 
 const ForgotPassword = () => {
   
   // Extraer register, handleSubmit y errors de useForm()
   const { register, handleSubmit, formState: { errors } } = useForm();
 
-  // Rercoger el dispatch de UsersContext para poder pasarle el dispatch a la función login
-  const {state,  dispatch } = useContext(UsersContext);
+  // Crear estado que controla si se ha solicitado ya el cambio de la contraseña
+  const [ requested, setRequested ] = useState(false);
 
-  console.log(state);
+  // Rercoger el dispatch de UsersContext para poder pasarle el dispatch a la función login
+  const { state, dispatch } = useContext(UsersContext);
+
+  console.log("Estados: ", state);
 
   return (
       <div className="forgot-pwd-container">
+        { state.requested ? ( 
+          <div className="requested">
+            <CorporateImageForm />
+            <p>Hemos enviado un correo electrónico con un enlace para que puedas actualizar tu contraseña.</p>
+            <p>Revisa tu bandeja de entrada</p>
+            <Link to="/login" className="forgot-password-ln">Ir al inicio</Link>
+          </div>  
+          ) : (           
           <Form handleSubmit={ handleSubmit } submit={ (data) => forgotPwd(data, dispatch) } register={ register }>
           {Object.keys(errors).length > 0 && (
               <Alert type="error">{errors[Object.keys(errors)[0]].message}</Alert>
@@ -35,6 +47,7 @@ const ForgotPassword = () => {
             <Link to="/login" className="forgot-password-ln">Inicio de Sesión</Link>
             <Button textButton="Recuperar contraseña" type="submit"/>      
           </Form>
+        )}
         <AuthFooter/>
       </div>
   )

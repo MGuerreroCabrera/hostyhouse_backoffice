@@ -24,7 +24,7 @@
 .input-field label {
     position: absolute;
     top: 50%;
-    left: 14px;
+    left: 15px;
     transform: translateY(-50%);
     pointer-events: none;
     font-size: var(--hh-font-size-s);

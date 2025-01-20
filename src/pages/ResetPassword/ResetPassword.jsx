@@ -18,7 +18,6 @@ const ResetPassword = () => {
 
     const navigate = useNavigate();
 
-    //! NECESITO EL DISPATCH DE USERSCONTEXT
     const { dispatch } = useContext(UsersContext);
 
     const onSubmit = data => {     

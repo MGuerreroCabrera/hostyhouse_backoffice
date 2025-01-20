@@ -29,10 +29,10 @@ const App = () => {
     <>
       { loading && <Loading/> }
       <Routes>
-        <Route path="/" element={<Home/>}/>
-        <Route path="/login" element={<Auth/>}/>
-        <Route path="/forgot-password" element={<Auth/>}/>
-        <Route path="/reset-password" element={<ResetPassword/>}/>
+        <Route path="/" element={<Home />}/>
+        <Route path="/login" element={<Auth/ >}/>
+        <Route path="/forgot-password" element={<Auth />}/>
+        <Route path="/reset-password" element={<ResetPassword />}/>
         <Route path="*" element={<Home/>}/>
       </Routes>
     </>
